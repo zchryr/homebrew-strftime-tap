@@ -5,21 +5,21 @@
 class Strftime < Formula
   desc "A versatile command-line tool for formatting and manipulating dates, supporting multiple formats and customizable output."
   homepage "https://github.com/zchryr/strftime"
-  version "0.0.2"
+  version "0.0.3"
   license "MIT"
 
   on_macos do
-    if Hardware::CPU.arm?
-      url "https://github.com/zchryr/strftime/releases/download/v0.0.2/strftime_Darwin_arm64.tar.gz"
-      sha256 "dbd6adc8488e821057594a56d1c7b0805e6e3bbe8e5f4337af457aa268ffb4d7"
+    if Hardware::CPU.intel?
+      url "https://github.com/zchryr/strftime/releases/download/v0.0.3/strftime_Darwin_x86_64.tar.gz"
+      sha256 "1deaffb757ba93c5ac7dd4c53abd1b625684941c1dcfae85599449cdba034223"
 
       def install
         bin.install "strftime"
       end
     end
-    if Hardware::CPU.intel?
-      url "https://github.com/zchryr/strftime/releases/download/v0.0.2/strftime_Darwin_x86_64.tar.gz"
-      sha256 "8aeafb8272ad1f7ce9d6b4f580383069e6ada772825dcd891eeda4f74336d6dd"
+    if Hardware::CPU.arm?
+      url "https://github.com/zchryr/strftime/releases/download/v0.0.3/strftime_Darwin_arm64.tar.gz"
+      sha256 "fde37ac6ade9fb75b3406a376caa75f77d0295c2f1e2b7e97ffc2dca10d1f931"
 
       def install
         bin.install "strftime"
@@ -28,17 +28,17 @@ class Strftime < Formula
   end
 
   on_linux do
-    if Hardware::CPU.intel?
-      url "https://github.com/zchryr/strftime/releases/download/v0.0.2/strftime_Linux_x86_64.tar.gz"
-      sha256 "8e4a87a49a1c32e7ea30e9af004b4c2873f145437b671fec970767cfaace4939"
+    if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
+      url "https://github.com/zchryr/strftime/releases/download/v0.0.3/strftime_Linux_arm64.tar.gz"
+      sha256 "c43576512a984ee2d33e2f9f54c8dd6d7b9e2a02507dcbaad3dc002c3176ce2f"
 
       def install
         bin.install "strftime"
       end
     end
-    if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://github.com/zchryr/strftime/releases/download/v0.0.2/strftime_Linux_arm64.tar.gz"
-      sha256 "d833125bc5cc0aa119daedadf70fb80d4e80f9cb5d989f09b63e6c5e9dd752ee"
+    if Hardware::CPU.intel?
+      url "https://github.com/zchryr/strftime/releases/download/v0.0.3/strftime_Linux_x86_64.tar.gz"
+      sha256 "e8b67a84d972dcf44c922b7fc532d8fc822675fd37c5a1a815ae40ef16ee8017"
 
       def install
         bin.install "strftime"
